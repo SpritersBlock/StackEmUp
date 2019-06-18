@@ -9,6 +9,7 @@ public class SceneChanger : MonoBehaviour {
 	void FixedUpdate () {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            //Loads BattleScene
             SceneManager.LoadScene(1);
         }
 	}

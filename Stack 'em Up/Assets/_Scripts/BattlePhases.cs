@@ -15,9 +15,4 @@ public class BattlePhases : MonoBehaviour {
         instance = this;
         playerTurn = phases.P1;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -15,8 +15,9 @@ public class Controls : MonoBehaviour {
             Invoke("BackToWorld", 2);
 	}
 
-     void BackToWorld()
+    void BackToWorld()
     {
+        // Loads Overworld
         SceneManager.LoadScene(0);
     }
 }
