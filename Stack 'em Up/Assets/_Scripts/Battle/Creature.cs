@@ -5,12 +5,14 @@ using TMPro;
 
 public abstract class Creature {
 
+    string name;
     float health;
     float maxHealth;
     int strength;
     int magic;
+    int stackNumber;
 
-    public Creature(float maxHealth, int strength, int magic)
+    public Creature(string name, float maxHealth, int strength, int magic, int stackNumber)
     {
         this.maxHealth = maxHealth;
         this.health = maxHealth;

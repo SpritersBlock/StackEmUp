@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : Creature {
 
-    public Enemy(float maxHealth, int strength, int magic) : base(maxHealth, strength, magic)
+    public Enemy(string name, float maxHealth, int strength, int magic, int stackNo) : base(name, maxHealth, strength, magic, stackNo)
     {
 
     }
