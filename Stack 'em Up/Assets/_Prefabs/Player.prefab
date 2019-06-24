@@ -21,8 +21,6 @@ GameObject:
   - component: {fileID: 4544705514211420}
   - component: {fileID: 33709788671389376}
   - component: {fileID: 23428010679095086}
-  - component: {fileID: 65482605482576440}
-  - component: {fileID: 114162863479758724}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -85,29 +83,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1494390704919180}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65482605482576440
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1494390704919180}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114162863479758724
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1494390704919180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec13e717ad2f2fa4ca03bcd21bfdbf0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 0
-  Strength: 0
-  Magic: 0

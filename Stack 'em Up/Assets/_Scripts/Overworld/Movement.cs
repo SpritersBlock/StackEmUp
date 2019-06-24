@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour {
 
@@ -35,7 +34,7 @@ public class Movement : MonoBehaviour {
         {
             bufferCount = 10f;
             Debug.Log("RANDOM ENCOUNTER STARTED");
-            SceneManager.LoadScene(1);
+            SceneManagers.instance.ToBattle();
         }
 	}
 
