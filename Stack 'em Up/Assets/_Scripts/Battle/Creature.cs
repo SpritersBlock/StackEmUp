@@ -28,7 +28,7 @@ public abstract class Creature {
         health -= damage;
         if(health <= 0)
         {
-            health = 0;
+            health = 0;          
             Debug.Log("Dead");
         }
     }
