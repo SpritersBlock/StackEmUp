@@ -413,10 +413,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1040479575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 471d6104fa508c24c9ef90bed4ad49a7, type: 3}
+  m_Script: {fileID: 11500000, guid: a5cb2ba7474b84140812accbcc4f05b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1219865990}
+  text: {fileID: 0}
   turnNo: 0
 --- !u!4 &1040479577
 Transform:
