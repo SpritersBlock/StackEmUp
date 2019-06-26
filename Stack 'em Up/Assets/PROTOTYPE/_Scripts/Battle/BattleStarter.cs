@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleManager : MonoBehaviour {
+public class BattleStarter : MonoBehaviour {
 
-    public static BattleManager instance;
+    public static BattleStarter instance;
 
     public GameObject enemy;
     public GameObject enemySpawn;

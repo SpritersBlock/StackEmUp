@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5cb2ba7474b84140812accbcc4f05b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  text: {fileID: 1219865990}
   turnNo: 0
 --- !u!4 &1040479577
 Transform:

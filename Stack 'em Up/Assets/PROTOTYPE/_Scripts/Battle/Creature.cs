@@ -22,14 +22,4 @@ public abstract class Creature {
         this.stackNumber = stackNumber;
         this.fieldEnemy = fieldEnemy;
     }
-
-    public void Damage(int damage)
-    {
-        health -= damage;
-        if(health <= 0)
-        {
-            health = 0;          
-            Debug.Log("Dead");
-        }
-    }
 }

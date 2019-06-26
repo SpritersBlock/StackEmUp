@@ -19,7 +19,7 @@ public class BattleTurns : MonoBehaviour {
     {
         if(joust == false)
         {
-            text.gameObject.transform.position = BattleManager.instance.playerFieldList[turnNo].transform.position - new Vector3(-2, 0, 0);
+            text.gameObject.transform.position = BattleStarter.instance.playerFieldList[turnNo].transform.position - new Vector3(-2, 0, 0);
             text.text = turnNo.ToString();
             if (turnNo == 0)
             {
