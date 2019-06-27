@@ -109,18 +109,14 @@ public class VIDE_UI_Man : MonoBehaviour
         //Let's not go forward if text is currently being animated, but let's speed it up.
         if (animatingText) { CutTextAnim(); return; }
 
-        if (!dialoguePaused) //Only if
+        if (!dialoguePaused) //Only if dialogue isn't paused(?)
         {
             VD.Next(); //We call the next node and populate nodeData with new data. Will fire OnNodeChange.
         }
         else
         {
             //Disable item popup and disable pause
-            if (itemPopUp.activeSelf)
-            {
-                dialoguePaused = false;
-                itemPopUp.SetActive(false);
-            }
+            //There used to be an item popup here but I got rid of it because we won't need it, probably. We can make our own no problem.
         }
     }
 
@@ -158,7 +154,10 @@ public class VIDE_UI_Man : MonoBehaviour
                     }
                     else
                     {
-                        currentChoices[i].fontStyle = FontStyles.Normal;
+                        if (currentChoices[i].fontStyle != FontStyles.Normal)
+                        {
+                            currentChoices[i].fontStyle = FontStyles.Normal;
+                        }
                     }
                 }
             }
@@ -255,7 +254,7 @@ public class VIDE_UI_Man : MonoBehaviour
         {
             GameObject newOp = Instantiate(playerChoicePrefab.gameObject, playerChoicePrefab.transform.position, Quaternion.identity) as GameObject;
             newOp.transform.SetParent(playerChoicePrefab.transform.parent, true);
-            newOp.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 20 - (20 * i));
+            newOp.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0 - (46 * i));
             newOp.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             newOp.GetComponent<TMPro.TextMeshProUGUI>().text = choices[i];
             newOp.SetActive(true);
@@ -328,7 +327,7 @@ public class VIDE_UI_Man : MonoBehaviour
             //Checks for extraData that concerns font size (CrazyCap node 2)
             if (data.extraData[data.commentIndex].Contains("fs"))
             {
-                int fSize = 14;
+                int fSize = 46;
 
                 string[] fontSize = data.extraData[data.commentIndex].Split(","[0]);
                 int.TryParse(fontSize[1], out fSize);
@@ -336,7 +335,7 @@ public class VIDE_UI_Man : MonoBehaviour
             }
             else
             {
-                NPC_Text.fontSize = 14;
+                NPC_Text.fontSize = 46;
             }
         }
     }

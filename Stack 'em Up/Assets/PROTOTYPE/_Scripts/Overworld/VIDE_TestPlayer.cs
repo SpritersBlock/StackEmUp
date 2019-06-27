@@ -10,57 +10,56 @@ public class VIDE_TestPlayer : MonoBehaviour {
     public VIDE_UI_Man dialogueUI;
 
     //Stored current VA when inside a trigger
-    public VIDE_Assign inTrigger;
+    public VIDE_Assign inTrigger; //The primary dialogue accessible by the game.
+    public VIDE_Assign lastTrigger; //Used as a backup.
 
+    //This and OnTriggerExit pick up available conversations in the overworld.
     void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<VIDE_Assign>() != null)
+        {
             inTrigger = other.GetComponent<VIDE_Assign>();
+        }
     }
-
-    void OnTriggerExit()
+    void OnTriggerExit(Collider other)
     {
-        inTrigger = null;
+        if (other.GetComponent<VIDE_Assign>() != null)
+        {
+            inTrigger = null;
+        }
     }
 	
-	// Update is called once per frame
 	void Update () {
         //Interact with NPCs when pressing E
         if (Input.GetKeyDown(KeyCode.E))
         {
-            TryInteract();
+            TryInteract(); //NOTE: "Interact" both begins dialogue and advances it.
         }
     }
 
-    void TryInteract()
+    void TryInteract() //See if the player is able to interact.
     {
-        /* Prioritize triggers */
-
-        if (inTrigger)
+        if (inTrigger && !VD.isActive)
         {
             Interact(inTrigger);
             return;
         }
+        else if (VD.isActive)
+        //This makes sure that the player can advance dialogue if they leave the range of conversation for whatever reason.
+        //This is only if dialogue is currently active.
+        {
+            Interact(lastTrigger); //lastTrigger is set down below in Interact();
+        }
 
-        /* If we are not in a trigger, try with raycasts */
-
-        //RaycastHit rHit;
-
-        //if (Physics.Raycast(transform.position, transform.forward, out rHit, 2))
-        //{
-        //    //Lets grab the NPC's VIDE_Assign script, if there's any
-        //    VIDE_Assign assigned;
-        //    if (rHit.collider.GetComponent<VIDE_Assign>() != null)
-        //        assigned = rHit.collider.GetComponent<VIDE_Assign>();
-        //    else return;
-
-
-        //    dialogueUI.Interact(assigned); //Begins interaction
-        //}
     }
 
-    void Interact(VIDE_Assign dialogue)
+    //THIS IS HOW WE ACTIVATE DIALOGUE, WOOO
+    public void Interact(VIDE_Assign dialogue)
     {
         dialogueUI.Interact(dialogue);
+        lastTrigger = dialogue; //This creates a back-up that we can use to advance dialogue up above.
+
+        //NOTE: "Interact" both begins dialogue and advances it.
+        //We'll have to be careful about making sure dialogue isn't activated when we run this, unless we want the player to automatically advance.
     }
 }
