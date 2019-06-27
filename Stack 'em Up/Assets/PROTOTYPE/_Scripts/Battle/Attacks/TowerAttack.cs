@@ -18,4 +18,9 @@ public class TowerAttack : IAttack {
     {
         return "Combination";
     }
+
+    public bool IsCombo()
+    {
+        return true;
+    }
 }

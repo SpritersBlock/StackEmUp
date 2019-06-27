@@ -6,4 +6,5 @@ public interface IAttack{
 
     string GetName();
     int GetDamage();
+    bool IsCombo();
 }
