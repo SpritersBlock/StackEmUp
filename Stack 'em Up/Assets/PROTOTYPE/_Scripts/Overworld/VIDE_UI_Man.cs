@@ -132,12 +132,13 @@ public class VIDE_UI_Man : MonoBehaviour
             //For player nodes, NodeData.commentIndex is the index of the picked choice
             if (!data.pausedAction && data.isPlayer)
             {
-                if (Input.GetKeyDown(KeyCode.S))
+                //if (Input.GetKeyDown(KeyCode.S))
+                if (Input.GetAxis("Vertical") < 0)
                 {
                     if (data.commentIndex < currentChoices.Count - 1)
                         data.commentIndex++;
                 }
-                if (Input.GetKeyDown(KeyCode.W))
+                if (Input.GetAxis("Vertical") > 0)
                 {
                     if (data.commentIndex > 0)
                         data.commentIndex--;
