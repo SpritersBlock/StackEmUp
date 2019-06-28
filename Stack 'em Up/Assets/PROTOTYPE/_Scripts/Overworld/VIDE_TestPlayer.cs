@@ -19,6 +19,10 @@ public class VIDE_TestPlayer : MonoBehaviour {
         if (other.GetComponent<VIDE_Assign>() != null)
         {
             inTrigger = other.GetComponent<VIDE_Assign>();
+            if (other.tag == "TriggerDialogue")
+            {
+                TryInteract();
+            }
         }
     }
     void OnTriggerExit(Collider other)
