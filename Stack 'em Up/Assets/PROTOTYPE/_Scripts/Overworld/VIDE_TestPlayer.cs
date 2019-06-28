@@ -13,6 +13,23 @@ public class VIDE_TestPlayer : MonoBehaviour {
     public VIDE_Assign inTrigger; //The primary dialogue accessible by the game.
     public VIDE_Assign lastTrigger; //Used as a backup.
 
+    public KeyCode actionKey;
+    public KeyCode skipKey;
+
+    private void Start()
+    {
+        if (actionKey == KeyCode.None)
+        {
+            Debug.LogWarning("No Action Key Assigned. Action Key is now E.");
+            actionKey = KeyCode.E;
+        }
+        if (skipKey == KeyCode.None)
+        {
+            Debug.LogWarning("No Skip Key Assigned. Skip Key is now Q.");
+            skipKey = KeyCode.Q;
+        }
+    }
+
     //This and OnTriggerExit pick up available conversations in the overworld.
     void OnTriggerEnter(Collider other)
     {
