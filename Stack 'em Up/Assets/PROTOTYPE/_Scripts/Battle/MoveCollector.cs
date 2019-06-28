@@ -1,14 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
-public enum TurnOrder { P1Turn, P2Turn, P3Turn};
 
 public class MoveCollector : MonoBehaviour {
 
-    public TurnOrder CurrentTurnOrder;
 
-    public IAttack[] PlayerAttacks;
+    public List<IMove> PlayerAttacks = new List<IMove>();
 
     public bool AllMovesChosen = false;
 
@@ -22,9 +20,29 @@ public class MoveCollector : MonoBehaviour {
 
     }
 
-    public void ChooseMove()
+    public void AddBasicAttack()
     {
-        PlayerAttacks = new IAttack[] { new BasicAttack("Attack1", 20, true), new BasicAttack("Attack2", 10, true), new BasicAttack("Attack 3", 15, true) };
-        AllMovesChosen = true;
+        PlayerAttacks.Add(new BasicAttack("Attack1", 20));
+        Debug.Log("Basic Added");
+        CheckTurnOver();
+    }
+
+    public void AddComboAttack()
+    {
+        PlayerAttacks.Add(new AddDamage());
+        Debug.Log("Combo Added");
+        CheckTurnOver();
+    }
+
+    public void CheckTurnOver()
+    {
+        if(PlayerAttacks.Count >= 3)
+        {
+            AllMovesChosen = true;
+            var Tower = new TowerAttack(PlayerAttacks.Where(a => a is ComboAttack).Select(a => a as ComboAttack).ToArray());
+            Debug.Log(Tower);
+            PlayerAttacks.Add(Tower);
+            Debug.Log(PlayerAttacks.Count);
+        }
     }
 }

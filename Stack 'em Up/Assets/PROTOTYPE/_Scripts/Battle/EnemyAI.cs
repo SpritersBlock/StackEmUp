@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour {
 
-    public IAttack[] EnemyAttacks;
+    public List<IMove> EnemyAttacks = new List<IMove>();
 
     // Update is called once per frame
-    void FixedUpdate () {
-        EnemyAttacks = new IAttack[] { new BasicAttack("Attack1", 21, true), new BasicAttack("Attack2", 15, true), new BasicAttack("Attack 3", 18, true) };
+    public void EnemyMoveChoose() {
+        EnemyAttacks.Add(new BasicAttack("Attack1", 21));
+        EnemyAttacks.Add(new BasicAttack("Attack2", 15));
+        EnemyAttacks.Add(new BasicAttack("Attack3", 10));
     }
 }

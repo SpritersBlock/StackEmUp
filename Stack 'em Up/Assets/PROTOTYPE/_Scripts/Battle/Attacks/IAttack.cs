@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IAttack{
+public interface IAttack : IMove{
 
     string GetName();
     int GetDamage();
-    bool IsCombo();
 }

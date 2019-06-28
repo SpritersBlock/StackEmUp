@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   encounterBuffer: 10
-  bufferCount: 9.5
+  bufferCount: 10
 --- !u!212 &1486028449
 SpriteRenderer:
   m_ObjectHideFlags: 0

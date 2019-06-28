@@ -6,9 +6,8 @@ public class BasicAttack : IAttack {
 
     string name;
     int damage;
-    bool combo;
 
-    public BasicAttack(string name, int damage, bool combo)
+    public BasicAttack(string name, int damage)
     {
         this.name = name;
         this.damage = damage;
@@ -22,10 +21,5 @@ public class BasicAttack : IAttack {
     public string GetName()
     {
         return name;
-    }
-
-    public bool IsCombo()
-    {
-        return combo;
-    }
+    }    
 }

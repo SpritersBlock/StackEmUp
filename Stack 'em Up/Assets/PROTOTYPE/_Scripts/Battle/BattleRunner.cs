@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BattleRunner : MonoBehaviour {
@@ -18,6 +19,8 @@ public class BattleRunner : MonoBehaviour {
     public int PlayerHP;
     public int EnemyCombinedDmg;
     public int EnemyHP;
+
+    public bool CombatOver = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -41,32 +44,54 @@ public class BattleRunner : MonoBehaviour {
             PlayerCombinedDmg = 0;
             EnemyCombinedDmg = 0;
             button.SetActive(false);
+            MoveCollector.GetComponent<MoveCollector>().AllMovesChosen = false;
+            EnemyMoveHolder.EnemyMoveChoose();
 
-            for (int i = 0; i < MoveHolder.PlayerAttacks.Length; i++)
+            foreach (var attack in MoveHolder.PlayerAttacks.Where(a => a is BasicAttack).Select(a => a as BasicAttack).ToArray())
             {
-                PlayerCombinedDmg += MoveHolder.PlayerAttacks[i].GetDamage();
+                EnemyHP -= attack.GetDamage();
+                Debug.Log(attack.GetDamage());
+                CheckHP();
             }
-            for (int i = 0; i < EnemyMoveHolder.EnemyAttacks.Length; i++)
+            foreach (var enemyAttack in EnemyMoveHolder.EnemyAttacks.Where(b => b is BasicAttack).Select(b => b as BasicAttack).ToArray())
             {
-                EnemyCombinedDmg += EnemyMoveHolder.EnemyAttacks[i].GetDamage();
+                PlayerHP -= enemyAttack.GetDamage();
+                Debug.Log(enemyAttack.GetDamage());
+                CheckHP();
             }
 
             EnemyHP -= PlayerCombinedDmg;
             PlayerHP -= EnemyCombinedDmg;
-            if(PlayerHP <= 0)
+
+            Debug.Log(PlayerCombinedDmg);
+            Debug.Log(EnemyCombinedDmg);
+
+            CheckHP();
+           
+            MoveHolder.PlayerAttacks.Clear();
+            EnemyMoveHolder.EnemyAttacks.Clear();
+        }
+	}
+
+    public void CheckHP()
+    {
+        if(CombatOver == false)
+        {
+            if (PlayerHP <= 0)
             {
+                CombatOver = true;
                 PlayerHP = 0;
                 EnemyHP = 1;
                 Lose();
             }
             if (EnemyHP <= 0)
             {
+                CombatOver = true;
                 EnemyHP = 0;
                 Win();
             }
-            MoveCollector.GetComponent<MoveCollector>().AllMovesChosen = false;
         }
-	}
+    }
 
     private void Lose()
     {

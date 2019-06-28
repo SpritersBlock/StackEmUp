@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TowerAttack : IAttack {
 
+    public int damage;
+
     public TowerAttack(IEnumerable<ComboAttack> components)
     {
 
@@ -11,7 +13,7 @@ public class TowerAttack : IAttack {
 
     public int GetDamage()
     {
-        return 1;
+        return damage;
     }
 
     public string GetName()

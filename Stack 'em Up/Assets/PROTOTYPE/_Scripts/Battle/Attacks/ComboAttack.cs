@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComboAttack {
+public abstract class ComboAttack : IMove{
 
-    public ComboAttack()
-    {
-
-    }
+    public abstract void AddEffect(TowerAttack baseAttack);
 }
