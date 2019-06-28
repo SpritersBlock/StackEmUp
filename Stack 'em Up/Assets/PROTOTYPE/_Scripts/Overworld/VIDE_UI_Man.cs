@@ -265,7 +265,7 @@ public class VIDE_UI_Man : MonoBehaviour
 
     //Unsuscribe from everything, disable UI, and end dialogue
     //Called automatically because we subscribed to the OnEnd event
-    void EndDialogue(VD.NodeData data)
+    public void EndDialogue(VD.NodeData data)
     {
         //CheckTasks();
         VD.OnActionNode -= ActionHandler;
@@ -397,7 +397,7 @@ public class VIDE_UI_Man : MonoBehaviour
         animatingText = false;
     }
 
-    void CutTextAnim()
+    public void CutTextAnim()
     {
         StopCoroutine(NPC_TextAnimator);
         NPC_Text.text = VD.nodeData.comments[VD.nodeData.commentIndex]; //Now just copy full text		

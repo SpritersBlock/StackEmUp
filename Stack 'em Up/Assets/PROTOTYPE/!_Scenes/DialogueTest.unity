@@ -969,11 +969,12 @@ MonoBehaviour:
   - MrCube
   - NPCOnly
   - QuestChartDemo
+  - RepeatedZoneTest
   - TestNPCForRPG
   - TriggeredDude
   - Witch
   - ZoneTest
-  assignedIndex: 15
+  assignedIndex: 16
   assignedID: 70366
   assignedDialogue: ZoneTest
   interactionCount: 0
@@ -1189,11 +1190,12 @@ MonoBehaviour:
   - MrCube
   - NPCOnly
   - QuestChartDemo
+  - RepeatedZoneTest
   - TestNPCForRPG
   - TriggeredDude
   - Witch
   - ZoneTest
-  assignedIndex: 12
+  assignedIndex: 13
   assignedID: 9256
   assignedDialogue: TestNPCForRPG
   interactionCount: 0
@@ -1283,7 +1285,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1314403285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.81, y: 0, z: 0}
+  m_LocalPosition: {x: 2.49, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -39,6 +39,15 @@ public class VIDE_TestPlayer : MonoBehaviour {
         {
             TryInteract(); //NOTE: "Interact" both begins dialogue and advances it.
         }
+
+        if (Input.GetKeyDown(KeyCode.Q)) //Skip dialogue...
+        {
+            if (VD.isActive && VD.assigned.interactionCount > 0) //...but only if the player's talked to this person already.
+            {
+                dialogueUI.CutTextAnim();
+                dialogueUI.EndDialogue(VD.nodeData);
+            }
+        }
     }
 
     void TryInteract() //See if the player is able to interact.
