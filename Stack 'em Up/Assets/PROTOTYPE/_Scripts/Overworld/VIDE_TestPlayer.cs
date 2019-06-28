@@ -18,6 +18,7 @@ public class VIDE_TestPlayer : MonoBehaviour {
 
     private void Start()
     {
+        //Check if Action/Skip Keys are assigned. If not, make 'em the Jaesda-picked defaults.
         if (actionKey == KeyCode.None)
         {
             Debug.LogWarning("No Action Key Assigned. Action Key is now E.");
@@ -72,13 +73,13 @@ public class VIDE_TestPlayer : MonoBehaviour {
 
 
     void Update () {
-        //Interact with NPCs when pressing E
-        if (Input.GetKeyDown(KeyCode.E))
+        //Interact with NPCs when pressing ActionKey
+        if (Input.GetKeyDown(actionKey))
         {
             TryInteract(); //NOTE: "Interact" both begins dialogue and advances it.
         }
 
-        if (Input.GetKeyDown(KeyCode.Q)) //Skip dialogue...
+        if (Input.GetKeyDown(skipKey)) //Skip dialogue...
         {
             if (VD.isActive && VD.assigned.interactionCount > 0) //...but only if the player's talked to this person already.
             {

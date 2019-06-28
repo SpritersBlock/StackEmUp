@@ -1614,6 +1614,8 @@ MonoBehaviour:
   dialogueUI: {fileID: 694961803}
   inTrigger: {fileID: 0}
   lastTrigger: {fileID: 0}
+  actionKey: 101
+  skipKey: 113
 --- !u!65 &1811494572
 BoxCollider:
   m_ObjectHideFlags: 0
