@@ -32,8 +32,29 @@ public class VIDE_TestPlayer : MonoBehaviour {
             inTrigger = null;
         }
     }
-	
-	void Update () {
+
+    //2D variant, because I'm still unclear on whether we're going for a 2D scene or 3D scene. Can't hurt to cover our bases.
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<VIDE_Assign>() != null)
+        {
+            inTrigger = collision.GetComponent<VIDE_Assign>();
+            if (collision.tag == "TriggerDialogue")
+            {
+                TryInteract();
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<VIDE_Assign>() != null)
+        {
+            inTrigger = null;
+        }
+    }
+
+
+    void Update () {
         //Interact with NPCs when pressing E
         if (Input.GetKeyDown(KeyCode.E))
         {

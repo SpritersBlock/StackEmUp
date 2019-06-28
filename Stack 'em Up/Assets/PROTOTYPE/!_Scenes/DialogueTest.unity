@@ -974,9 +974,9 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   - ZoneTest
-  assignedIndex: 16
-  assignedID: 70366
-  assignedDialogue: ZoneTest
+  assignedIndex: 12
+  assignedID: 29945
+  assignedDialogue: RepeatedZoneTest
   interactionCount: 0
   alias: GOKU
   overrideStartNode: -1
@@ -1189,17 +1189,21 @@ MonoBehaviour:
   - Laura
   - MrCube
   - NPCOnly
+  - PARK_Bob
+  - PARK_Bobbest
+  - PARK_Bobby
+  - PARK_OldLady
   - QuestChartDemo
   - RepeatedZoneTest
   - TestNPCForRPG
   - TriggeredDude
   - Witch
   - ZoneTest
-  assignedIndex: 13
-  assignedID: 9256
-  assignedDialogue: TestNPCForRPG
+  assignedIndex: 14
+  assignedID: 40976
+  assignedDialogue: PARK_OldLady
   interactionCount: 0
-  alias: Mr. NPC
+  alias: Old Lady
   overrideStartNode: -1
   defaultNPCSprite: {fileID: 21300000, guid: 80fe9d6e5fdb5db4bb20bdd4f61d96fd, type: 3}
   defaultPlayerSprite: {fileID: 0}
