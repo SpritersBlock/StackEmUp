@@ -13,24 +13,6 @@ public class VIDE_TestPlayer : MonoBehaviour {
     public VIDE_Assign inTrigger; //The primary dialogue accessible by the game.
     public VIDE_Assign lastTrigger; //Used as a backup.
 
-    public KeyCode actionKey;
-    public KeyCode skipKey;
-
-    private void Start()
-    {
-        //Check if Action/Skip Keys are assigned. If not, make 'em the Jaesda-picked defaults.
-        if (actionKey == KeyCode.None)
-        {
-            Debug.LogWarning("No Action Key Assigned. Action Key is now E.");
-            actionKey = KeyCode.E;
-        }
-        if (skipKey == KeyCode.None)
-        {
-            Debug.LogWarning("No Skip Key Assigned. Skip Key is now Q.");
-            skipKey = KeyCode.Q;
-        }
-    }
-
     //This and OnTriggerExit pick up available conversations in the overworld.
     void OnTriggerEnter(Collider other)
     {
@@ -74,12 +56,12 @@ public class VIDE_TestPlayer : MonoBehaviour {
 
     void Update () {
         //Interact with NPCs when pressing ActionKey
-        if (Input.GetKeyDown(actionKey))
+        if (Input.GetButtonDown("Select"))
         {
             TryInteract(); //NOTE: "Interact" both begins dialogue and advances it.
         }
 
-        if (Input.GetKeyDown(skipKey)) //Skip dialogue...
+        if (Input.GetButtonDown("Cancel")) //Skip dialogue...
         {
             if (VD.isActive && VD.assigned.interactionCount > 0) //...but only if the player's talked to this person already.
             {
