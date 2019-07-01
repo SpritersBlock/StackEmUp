@@ -3,15 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using VIDE_Data;
 
-public class VIDE_TestPlayer : MonoBehaviour {
+[RequireComponent(typeof(ValidInteractionNotification))]
+public class VIDE_PlayerDialogueStarter : MonoBehaviour {
 
     public string playerName = "Player Name"; //Will show up as a default name if no other name is given.
 
-    public VIDE_UI_Man dialogueUI;
+    public bool canInteract; //This will be useful for turning a "CAN INTERACT" notification on/off.
+
+    public VIDE_UI_Manager dialogueUI; //This handles the UI for the dialogue, hopefully obviously enough.
 
     //Stored current VA when inside a trigger
     public VIDE_Assign inTrigger; //The primary dialogue accessible by the game.
-    public VIDE_Assign lastTrigger; //Used as a backup.
+    private VIDE_Assign lastTrigger; //Used as a backup.
+
+    public ValidInteractionNotification canInteractNotif; //The script that activates/disables a "can interact" signal to the player.
+
+    private void Start()
+    {
+        if (canInteractNotif == null)
+        {
+            canInteractNotif = GetComponent<ValidInteractionNotification>();
+        }
+    }
 
     //This and OnTriggerExit pick up available conversations in the overworld.
     void OnTriggerEnter(Collider other)
@@ -19,7 +32,9 @@ public class VIDE_TestPlayer : MonoBehaviour {
         if (other.GetComponent<VIDE_Assign>() != null)
         {
             inTrigger = other.GetComponent<VIDE_Assign>();
-            if (other.tag == "TriggerDialogue")
+            canInteract = true;
+            canInteractNotif.InteractSignalSwitch(true);
+            if (other.tag == "TriggerDialogue") // If dialogue is meant to initiate the instant the player walks into a zone.
             {
                 TryInteract();
             }
@@ -27,9 +42,11 @@ public class VIDE_TestPlayer : MonoBehaviour {
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<VIDE_Assign>() != null)
+        if (other.GetComponent<VIDE_Assign>() != null) //This is to make sure that the player can't lose their dialogue if an unrelated trigger enters and exits while they're still within an ACTUAL VA
         {
             inTrigger = null;
+            canInteract = false;
+            canInteractNotif.InteractSignalSwitch(false);
         }
     }
 
@@ -39,7 +56,9 @@ public class VIDE_TestPlayer : MonoBehaviour {
         if (collision.GetComponent<VIDE_Assign>() != null)
         {
             inTrigger = collision.GetComponent<VIDE_Assign>();
-            if (collision.tag == "TriggerDialogue")
+            canInteract = true;
+            canInteractNotif.InteractSignalSwitch(true);
+            if (collision.tag == "TriggerDialogue") // If dialogue is meant to initiate the instant the player walks into a zone.
             {
                 TryInteract();
             }
@@ -50,6 +69,8 @@ public class VIDE_TestPlayer : MonoBehaviour {
         if (collision.GetComponent<VIDE_Assign>() != null)
         {
             inTrigger = null;
+            canInteract = false;
+            canInteractNotif.InteractSignalSwitch(false);
         }
     }
 

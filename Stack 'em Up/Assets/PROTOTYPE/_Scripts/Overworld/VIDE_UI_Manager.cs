@@ -15,7 +15,7 @@ using UnityEngine.UI;
 using VIDE_Data; //<--- Import to use easily call VD class
 using TMPro;
 
-public class VIDE_UI_Man : MonoBehaviour
+public class VIDE_UI_Manager : MonoBehaviour
 {
 
     //This script will handle everything related to dialogue interface
@@ -27,12 +27,13 @@ public class VIDE_UI_Man : MonoBehaviour
     public GameObject dialogueContainer;
     public GameObject NPC_Container;
     public GameObject playerContainer;
-    public GameObject itemPopUp;
+    //public GameObject itemPopUp;
+    public GameObject canSkipNotif; //This tells the player that they can skip this dialogue.
     
     public TextMeshProUGUI NPC_Text;
     public TextMeshProUGUI NPC_label;
     public Image NPCSprite;
-    public GameObject playerChoicePrefab;
+    public GameObject playerChoicePrefab; //This is used for the "Player" node
     public Image playerSprite;
     public TextMeshProUGUI playerLabel;
 
@@ -40,7 +41,7 @@ public class VIDE_UI_Man : MonoBehaviour
     bool animatingText = false; //Will help us know when text is currently being animated
 
     //Reference to the player script
-    public VIDE_TestPlayer player;
+    public VIDE_PlayerDialogueStarter player;
 
     //We'll be using this to store references of the current player choices
     private List<TextMeshProUGUI> currentChoices = new List<TextMeshProUGUI>();
@@ -144,7 +145,7 @@ public class VIDE_UI_Man : MonoBehaviour
                         data.commentIndex--;
                 }
 
-                //Color the Player options. Blue for the selected one
+                //Color the Player options. Yellow + bold for the selected one
                 for (int i = 0; i < currentChoices.Count; i++)
                 {
                     currentChoices[i].color = Color.white;
@@ -161,6 +162,13 @@ public class VIDE_UI_Man : MonoBehaviour
                         }
                     }
                 }
+            }
+            if (VD.assigned.interactionCount > 0 && !canSkipNotif.activeSelf)
+            {
+                canSkipNotif.SetActive(true);
+            } else if (VD.assigned.interactionCount == 0 && canSkipNotif.activeSelf)
+            {
+                canSkipNotif.SetActive(false);
             }
         }
 
