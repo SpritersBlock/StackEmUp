@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 221819616}
   - component: {fileID: 221819615}
   - component: {fileID: 221819614}
+  - component: {fileID: 221819617}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -280,6 +281,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &221819617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 221819613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a17f052447b17c49a62ad4f86fd8f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1811494575}
+  smoothSpeed: 10
+  offset: {x: 0, y: 0, z: -8}
 --- !u!1 &289005839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e1439fc57919c44bab86bee817baab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteractNotif: {fileID: 1022926824052620, guid: 6d849032a61bfcc42848a716f299bf66,
+  canInteractSignal: {fileID: 1022926824052620, guid: 6d849032a61bfcc42848a716f299bf66,
     type: 2}
   notifHeight: 1.5
 --- !u!65 &1811494572
@@ -1962,7 +1977,7 @@ MonoBehaviour:
   canInteract: 0
   dialogueUI: {fileID: 694961803}
   inTrigger: {fileID: 0}
-  canInteractNotif: {fileID: 0}
+  validInteractNotif: {fileID: 0}
 --- !u!1 &2006583975
 GameObject:
   m_ObjectHideFlags: 0
