@@ -8,7 +8,6 @@ public class BattleStarter : MonoBehaviour {
 
     public GameObject enemy;
     public GameObject enemySpawn;
-
     public GameObject player;
     public GameObject playerSpawn;
 
@@ -34,7 +33,7 @@ public class BattleStarter : MonoBehaviour {
         int enemies = 3;
         for (int i = 0; i < enemies; i++)
         {
-            var fieldEnemy = Instantiate(enemy, enemySpawn.transform.position + new Vector3(0, i, 0), Quaternion.identity);
+            var fieldEnemy = Instantiate(enemy, enemySpawn.transform.position + new Vector3(0, (i + 1), 0), Quaternion.identity);
             fieldEnemy.name = "Enemy " + (i + 1);
             enemyFieldList.Add(fieldEnemy);
             //Add Random thing there
@@ -45,7 +44,7 @@ public class BattleStarter : MonoBehaviour {
         int players = 3;
         for (int i = 0; i < players; i++)
         {
-            var fieldPlayer = Instantiate(player, playerSpawn.transform.position + new Vector3(0, i, 0), Quaternion.identity);
+            var fieldPlayer = Instantiate(player, playerSpawn.transform.position + new Vector3(0, (i + 1), 0), Quaternion.identity);
             fieldPlayer.name = "Player " + (i + 1);
             playerFieldList.Add(fieldPlayer);
             //Add Player Stats from field
@@ -59,12 +58,14 @@ public class BattleStarter : MonoBehaviour {
         }
         var EnemyStack = new StackHP(EnemyStackHP);
         enemyStack.Add(EnemyStack);
+        BattleRunner.instance.EnemyHP = EnemyStack.health;
         foreach (var player in playerList)
         {
             PlayerStackHP += player.health;
         }
         var PlayerStack = new StackHP(PlayerStackHP);
         playerStack.Add(PlayerStack);
+        BattleRunner.instance.PlayerHP = PlayerStack.health;
         Debug.Log(playerStack[0].health);
         Debug.Log(enemyStack[0].health);
     }

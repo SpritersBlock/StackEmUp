@@ -15,10 +15,10 @@ public class BattleRunner : MonoBehaviour {
 
     public GameObject button;
 
+    public float PlayerHP;
+    public float EnemyHP;
     public int PlayerCombinedDmg;
-    public int PlayerHP;
     public int EnemyCombinedDmg;
-    public int EnemyHP;
 
     public bool CombatOver = false;
 
@@ -38,6 +38,10 @@ public class BattleRunner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        PlayerHP = BattleStarter.instance.playerStack[0].health;
+        EnemyHP = BattleStarter.instance.enemyStack[0].health;
+
         button.SetActive(true);
         if (MoveCollector.GetComponent<MoveCollector>().AllMovesChosen)
         {
@@ -49,19 +53,24 @@ public class BattleRunner : MonoBehaviour {
 
             foreach (var attack in MoveHolder.PlayerAttacks.Where(a => a is BasicAttack).Select(a => a as BasicAttack).ToArray())
             {
-                EnemyHP -= attack.GetDamage();
+                BattleStarter.instance.enemyStack[0].health -= attack.GetDamage();
                 Debug.Log(attack.GetDamage());
                 CheckHP();
             }
-            foreach (var enemyAttack in EnemyMoveHolder.EnemyAttacks.Where(b => b is BasicAttack).Select(b => b as BasicAttack).ToArray())
+            foreach (var enemyAttack in EnemyMoveHolder.EnemyAttacks.Where(a => a is BasicAttack).Select(a => a as BasicAttack).ToArray())
             {
-                PlayerHP -= enemyAttack.GetDamage();
+                BattleStarter.instance.playerStack[0].health -= enemyAttack.GetDamage();
                 Debug.Log(enemyAttack.GetDamage());
                 CheckHP();
             }
 
-            EnemyHP -= PlayerCombinedDmg;
-            PlayerHP -= EnemyCombinedDmg;
+            var JoustAttack = MoveHolder.PlayerAttacks.Where(a => a is TowerAttack).Select(a => a as TowerAttack).FirstOrDefault();
+            JoustAttack.Resolve();
+
+            PlayerCombinedDmg = JoustAttack.GetDamage();
+
+            BattleStarter.instance.enemyStack[0].health -= PlayerCombinedDmg;
+            BattleStarter.instance.playerStack[0].health -= EnemyCombinedDmg;
 
             Debug.Log(PlayerCombinedDmg);
             Debug.Log(EnemyCombinedDmg);
@@ -77,17 +86,17 @@ public class BattleRunner : MonoBehaviour {
     {
         if(CombatOver == false)
         {
-            if (PlayerHP <= 0)
+            if (BattleStarter.instance.playerStack[0].health <= 0)
             {
                 CombatOver = true;
-                PlayerHP = 0;
-                EnemyHP = 1;
+                BattleStarter.instance.playerStack[0].health = 0;
+                BattleStarter.instance.enemyStack[0].health = 1;
                 Lose();
             }
-            if (EnemyHP <= 0)
+            if (BattleStarter.instance.enemyStack[0].health <= 0)
             {
                 CombatOver = true;
-                EnemyHP = 0;
+                BattleStarter.instance.enemyStack[0].health = 0;
                 Win();
             }
         }
