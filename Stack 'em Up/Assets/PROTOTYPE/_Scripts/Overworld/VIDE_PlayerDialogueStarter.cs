@@ -16,13 +16,13 @@ public class VIDE_PlayerDialogueStarter : MonoBehaviour {
     public VIDE_Assign inTrigger; //The primary dialogue accessible by the game.
     private VIDE_Assign lastTrigger; //Used as a backup.
 
-    public ValidInteractionNotification canInteractNotif; //The script that activates/disables a "can interact" signal to the player.
+    public ValidInteractionNotification validInteractNotif; //The script that activates/disables a "can interact" signal to the player.
 
     private void Start()
     {
-        if (canInteractNotif == null)
+        if (validInteractNotif == null)
         {
-            canInteractNotif = GetComponent<ValidInteractionNotification>();
+            validInteractNotif = GetComponent<ValidInteractionNotification>();
         }
     }
 
@@ -33,10 +33,12 @@ public class VIDE_PlayerDialogueStarter : MonoBehaviour {
         {
             inTrigger = other.GetComponent<VIDE_Assign>();
             canInteract = true;
-            canInteractNotif.InteractSignalSwitch(true);
             if (other.tag == "TriggerDialogue") // If dialogue is meant to initiate the instant the player walks into a zone.
             {
                 TryInteract();
+            } else //This is so that the interact signal doesn't show up on automatic dialogue zones.
+            {
+                validInteractNotif.InteractSignalSwitch(true);
             }
         }
     }
@@ -46,7 +48,7 @@ public class VIDE_PlayerDialogueStarter : MonoBehaviour {
         {
             inTrigger = null;
             canInteract = false;
-            canInteractNotif.InteractSignalSwitch(false);
+            validInteractNotif.InteractSignalSwitch(false);
         }
     }
 
@@ -57,10 +59,12 @@ public class VIDE_PlayerDialogueStarter : MonoBehaviour {
         {
             inTrigger = collision.GetComponent<VIDE_Assign>();
             canInteract = true;
-            canInteractNotif.InteractSignalSwitch(true);
             if (collision.tag == "TriggerDialogue") // If dialogue is meant to initiate the instant the player walks into a zone.
             {
                 TryInteract();
+            } else //This is so that the interact signal doesn't show up on automatic dialogue zones.
+            {
+                validInteractNotif.InteractSignalSwitch(true);
             }
         }
     }
@@ -70,7 +74,7 @@ public class VIDE_PlayerDialogueStarter : MonoBehaviour {
         {
             inTrigger = null;
             canInteract = false;
-            canInteractNotif.InteractSignalSwitch(false);
+            validInteractNotif.InteractSignalSwitch(false);
         }
     }
 

@@ -713,7 +713,7 @@ MonoBehaviour:
   playerChoicePrefab: {fileID: 2072379810}
   playerSprite: {fileID: 1234301012}
   playerLabel: {fileID: 2006583977}
-  player: {fileID: 1811494571}
+  player: {fileID: 0}
   textSpeed: 0.017
 --- !u!1 &891988859
 GameObject:
@@ -1214,13 +1214,18 @@ MonoBehaviour:
   - Laura
   - MrCube
   - NPCOnly
+  - PARK_Bob
+  - PARK_Bobbest
+  - PARK_Bobby
+  - PARK_OldLady
+  - PARK_Pranksters
   - QuestChartDemo
   - RepeatedZoneTest
   - TestNPCForRPG
   - TriggeredDude
   - Witch
   - ZoneTest
-  assignedIndex: 12
+  assignedIndex: 17
   assignedID: 29945
   assignedDialogue: RepeatedZoneTest
   interactionCount: 0
@@ -1536,7 +1541,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1314403285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.49, y: 0, z: 0}
+  m_LocalPosition: {x: 3.81, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1836,8 +1841,9 @@ GameObject:
   - component: {fileID: 1811494574}
   - component: {fileID: 1811494573}
   - component: {fileID: 1811494572}
-  - component: {fileID: 1811494571}
   - component: {fileID: 1811494576}
+  - component: {fileID: 1811494577}
+  - component: {fileID: 1811494571}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1853,13 +1859,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1811494570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb621289acbc595428cfb739bb0412b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 76e1439fc57919c44bab86bee817baab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Player Name
-  canInteract: 0
-  dialogueUI: {fileID: 694961803}
-  inTrigger: {fileID: 0}
+  canInteractNotif: {fileID: 1022926824052620, guid: 6d849032a61bfcc42848a716f299bf66,
+    type: 2}
+  notifHeight: 1.5
 --- !u!65 &1811494572
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1942,6 +1947,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1811494577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811494570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb621289acbc595428cfb739bb0412b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: Player Name
+  canInteract: 0
+  dialogueUI: {fileID: 694961803}
+  inTrigger: {fileID: 0}
+  canInteractNotif: {fileID: 0}
 --- !u!1 &2006583975
 GameObject:
   m_ObjectHideFlags: 0
