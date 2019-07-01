@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ValidInteractionNotification : MonoBehaviour {
 
-    public GameObject canInteractNotif; //This could be a little "!" above the player or something, lets the player know they can initiate dialogue.
+    //I've set up a prefab called "CanInteractSignal" for the sake of the prototype. Drag it into "canInteractSignal" until we find something better.
+
+    public GameObject canInteractSignal; //This could be a little "!" above the player or something, lets the player know they can initiate dialogue.
     [SerializeField]
     private float notifHeight = 1.5f; //How tall above the player the notification is.
-    GameObject interactNotifClone;
+    GameObject interactSignalClone;
 
     // Use this for initialization
     void Start () {
-        interactNotifClone = Instantiate(canInteractNotif, transform, false);
-        interactNotifClone.transform.position += new Vector3(0, notifHeight, 0);
+        interactSignalClone = Instantiate(canInteractSignal, transform, false);
+        interactSignalClone.transform.position += new Vector3(0, notifHeight, 0);
         InteractSignalSwitch(false);
 	}
 	
@@ -23,10 +25,10 @@ public class ValidInteractionNotification : MonoBehaviour {
 
     public void InteractSignalSwitch (bool mode)
     {
-        if (canInteractNotif != null)
+        if (canInteractSignal != null)
         {
-            interactNotifClone.SetActive(mode);
-        } else if (canInteractNotif == null)
+            interactSignalClone.SetActive(mode);
+        } else if (canInteractSignal == null)
         {
             Debug.LogWarning("No InteractionNotification set up! Would be " + mode + ".");
         }
