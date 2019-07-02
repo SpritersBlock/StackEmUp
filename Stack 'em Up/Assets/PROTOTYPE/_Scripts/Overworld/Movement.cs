@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VIDE_Data;
 
 public class Movement : MonoBehaviour {
 
@@ -12,35 +13,43 @@ public class Movement : MonoBehaviour {
     private int encounterChanceMin = 30;
     private int encounterChanceMax = 50;
     private int encounterCheck;
+    //private Animator anim;
 
     private void Start()
     {       
         rb = GetComponent<Rigidbody2D>();
+        //anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update () {
-
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        moveVelocity = moveInput.normalized * speed;
-
-        if(moveInput.y != 0f || moveInput.x != 0f)
+        if (!VD.isActive)
         {
-            encounterCheck = Random.Range(1, 3000);
-            bufferCount += Time.deltaTime;
+            Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            moveVelocity = moveInput.normalized * speed;
+
+            if (moveInput.y != 0f || moveInput.x != 0f)
+            {
+                encounterCheck = Random.Range(1, 3000);
+                bufferCount += Time.deltaTime;
+            }
         }
 
         if((encounterCheck > encounterChanceMin && encounterCheck < encounterChanceMax) && (bufferCount > encounterBuffer))
         {
             bufferCount = 10f;
             Debug.Log("RANDOM ENCOUNTER STARTED");
-            SceneManagers.instance.ToBattle();
+            //SceneManagers.instance.ToBattle();
         }
 	}
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+    }
 
+    public void SetMoveVelocity(Vector2 newMoveVelocity) //This will be useful for freezing the player, but also moving the player during cutscenes.
+    {
+        moveVelocity = newMoveVelocity;
     }
 }

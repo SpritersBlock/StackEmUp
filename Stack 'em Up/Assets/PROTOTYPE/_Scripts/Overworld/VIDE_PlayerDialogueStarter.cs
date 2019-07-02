@@ -13,17 +13,18 @@ public class VIDE_PlayerDialogueStarter : MonoBehaviour {
     public VIDE_UI_Manager dialogueUI; //This handles the UI for the dialogue, hopefully obviously enough.
 
     //Stored current VA when inside a trigger
-    public VIDE_Assign inTrigger; //The primary dialogue accessible by the game.
+    [SerializeField]
+    private VIDE_Assign inTrigger; //The primary dialogue accessible by the game.
     private VIDE_Assign lastTrigger; //Used as a backup.
 
-    public ValidInteractionNotification validInteractNotif; //The script that activates/disables a "can interact" signal to the player.
+    private ValidInteractionNotification validInteractNotif; //The script that activates/disables a "can interact" signal to the player.
+
+    public Movement movementScript;
 
     private void Start()
     {
-        if (validInteractNotif == null)
-        {
-            validInteractNotif = GetComponent<ValidInteractionNotification>();
-        }
+        validInteractNotif = GetComponent<ValidInteractionNotification>();
+        movementScript = GetComponent<Movement>();
     }
 
     //This and OnTriggerExit pick up available conversations in the overworld.
@@ -117,6 +118,7 @@ public class VIDE_PlayerDialogueStarter : MonoBehaviour {
     {
         dialogueUI.Interact(dialogue);
         lastTrigger = dialogue; //This creates a back-up that we can use to advance dialogue up above.
+        movementScript.SetMoveVelocity(Vector2.zero);
 
         //NOTE: "Interact" both begins dialogue and advances it.
         //We'll have to be careful about making sure dialogue isn't activated when we run this, unless we want the player to automatically advance.
