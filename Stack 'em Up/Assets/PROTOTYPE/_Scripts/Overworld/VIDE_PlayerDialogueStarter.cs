@@ -25,6 +25,10 @@ public class VIDE_PlayerDialogueStarter : MonoBehaviour {
     {
         validInteractNotif = GetComponent<ValidInteractionNotification>();
         movementScript = GetComponent<Movement>();
+        if (movementScript == null)
+        {
+            Debug.LogWarning("Missing a Movement script!");
+        }
     }
 
     //This and OnTriggerExit pick up available conversations in the overworld.
