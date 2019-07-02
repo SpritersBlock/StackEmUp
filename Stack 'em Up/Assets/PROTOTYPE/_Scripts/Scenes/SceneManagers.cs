@@ -22,11 +22,11 @@ public class SceneManagers : MonoBehaviour {
 
     public void ToBattle()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void ToOverWorld()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

@@ -6,6 +6,6 @@ public class AddDamage : ComboAttack {
 
     public override void AddEffect(TowerAttack baseAttack)
     {
-        baseAttack.damage += 5;
+        baseAttack.damage += 3;
     }
 }
