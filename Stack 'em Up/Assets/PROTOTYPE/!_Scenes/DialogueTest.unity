@@ -728,7 +728,7 @@ MonoBehaviour:
   playerChoicePrefab: {fileID: 2072379810}
   playerSprite: {fileID: 1234301012}
   playerLabel: {fileID: 2006583977}
-  player: {fileID: 0}
+  player: {fileID: 1811494577}
   textSpeed: 0.017
 --- !u!1 &891988859
 GameObject:
@@ -1956,7 +1956,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
