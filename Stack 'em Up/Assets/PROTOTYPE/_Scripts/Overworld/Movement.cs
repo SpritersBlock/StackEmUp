@@ -41,6 +41,7 @@ public class Movement : MonoBehaviour {
             Debug.Log("RANDOM ENCOUNTER STARTED");
             //SceneManagers.instance.ToBattle();
             //SceneManagers.instance.MoveToScene(1); //Generic version of the thing above ^
+            StartCoroutine(SceneManagers.instance.SceneTransitionToScene("Battle Scene"));
         }
 	}
 

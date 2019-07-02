@@ -130,12 +130,14 @@ public class BattleRunner : MonoBehaviour {
     private void Lose()
     {
         Debug.Log("Lose");
-        SceneManagers.instance.ToOverWorld();
+        //SceneManagers.instance.ToOverWorld();
+        StartCoroutine(SceneManagers.instance.SceneTransitionToScene("Overworld"));
     }
 
     void Win()
     {
         Debug.Log("Win");
-        SceneManagers.instance.ToOverWorld();
+        //SceneManagers.instance.ToOverWorld();
+        StartCoroutine(SceneManagers.instance.SceneTransitionToScene("Overworld"));
     }
 }
