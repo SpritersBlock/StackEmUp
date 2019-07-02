@@ -203,143 +203,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 93468364}
   m_CullTransparentMesh: 0
---- !u!1 &208212299
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 208212300}
-  - component: {fileID: 208212301}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &208212300
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 208212299}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &208212301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 208212299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa40bffa2760b540b07b10147a10c6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Music_Title
-    clip: {fileID: 8300000, guid: 34b7d1482beb07248b39ba6eebcdb812, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Music_Park
-    clip: {fileID: 8300000, guid: 06d455a6a01bd6a47a916832090c035b, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: DunDunDun
-    clip: {fileID: 8300000, guid: 402b5bb7ca17e7c4f82c495966cb5418, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Music_Battle
-    clip: {fileID: 8300000, guid: 8c5dd3ee9e6f28841929af7b47894f46, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Music_BattleVictory
-    clip: {fileID: 8300000, guid: 531c4f1b1621b214bacc87a3ca65f2cc, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Music_BattleLoss
-    clip: {fileID: 8300000, guid: b707859106d822e439f185ae7db7d622, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Cursor Move
-    clip: {fileID: 8300000, guid: 0d892a63570de2944906879a9021aa2d, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Explosion
-    clip: {fileID: 8300000, guid: a7a3a99a5cd01814c9a06c1e37e10883, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Leaves Rustling
-    clip: {fileID: 8300000, guid: 0a1579a4efe94f248ab901fbadecbe6d, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Menu Open
-    clip: {fileID: 8300000, guid: e7b2618c7511ca24ea513ec6a36f8154, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Menu Close
-    clip: {fileID: 8300000, guid: 4062dde9f73f47a4f97eb0ff0a8abaaf, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Notification
-    clip: {fileID: 8300000, guid: 4da21b091032085409f491f9cc07e0b8, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Punch
-    clip: {fileID: 8300000, guid: 2db1b191a466ce4499f015b0a3115aef, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Sword Swing
-    clip: {fileID: 8300000, guid: 2642ec15baf744b4898fc6d881de70d7, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Textbox Open
-    clip: {fileID: 8300000, guid: 91ea9a3e3ed15324ca308fb1f0806673, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Textbox Close
-    clip: {fileID: 8300000, guid: a303fe0ba5f849847a1a366b9f192df0, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
 --- !u!1 &221819613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1175,48 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1193955252}
   m_CullTransparentMesh: 0
+--- !u!1001 &1230302189
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4385386499761984, guid: 2f34e9db0906afa4a9d32a05ee6b1ff9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385386499761984, guid: 2f34e9db0906afa4a9d32a05ee6b1ff9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385386499761984, guid: 2f34e9db0906afa4a9d32a05ee6b1ff9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385386499761984, guid: 2f34e9db0906afa4a9d32a05ee6b1ff9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385386499761984, guid: 2f34e9db0906afa4a9d32a05ee6b1ff9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385386499761984, guid: 2f34e9db0906afa4a9d32a05ee6b1ff9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385386499761984, guid: 2f34e9db0906afa4a9d32a05ee6b1ff9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385386499761984, guid: 2f34e9db0906afa4a9d32a05ee6b1ff9, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f34e9db0906afa4a9d32a05ee6b1ff9, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1231894860
 GameObject:
   m_ObjectHideFlags: 0
