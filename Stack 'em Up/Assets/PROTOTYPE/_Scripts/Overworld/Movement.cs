@@ -40,6 +40,7 @@ public class Movement : MonoBehaviour {
             bufferCount = 10f;
             Debug.Log("RANDOM ENCOUNTER STARTED");
             //SceneManagers.instance.ToBattle();
+            //SceneManagers.instance.MoveToScene(1); //Generic version of the thing above ^
         }
 	}
 
