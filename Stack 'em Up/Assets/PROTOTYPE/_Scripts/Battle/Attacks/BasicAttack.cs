@@ -21,5 +21,5 @@ public class BasicAttack : IAttack {
     public string GetName()
     {
         return name;
-    }
+    }    
 }
