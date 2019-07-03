@@ -22,7 +22,7 @@ public class MoveCollector : MonoBehaviour {
 
     public void AddBasicAttack()
     {
-        PlayerAttacks.Add(new BasicAttack("Attack1", 20));
+        PlayerAttacks.Add(new BasicAttack("Attack1", 3));
         Debug.Log("Basic Added");
         CheckTurnOver();
     }
