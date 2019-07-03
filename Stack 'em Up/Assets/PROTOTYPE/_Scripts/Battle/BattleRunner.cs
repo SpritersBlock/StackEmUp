@@ -97,8 +97,11 @@ public class BattleRunner : MonoBehaviour {
 
     private void ButtonsOn()
     {
-        button.SetActive(true);
-        button2.SetActive(true);
+        if(CombatOver == false)
+        {
+            button.SetActive(true);
+            button2.SetActive(true);
+        }
     }
 
     public void CheckHP()

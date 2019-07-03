@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour {
     private int encounterChanceMin = 30;
     private int encounterChanceMax = 50;
     private int encounterCheck;
+
+    public bool canMove = true;
     //private Animator anim;
 
     private void Start()
@@ -23,7 +25,12 @@ public class Movement : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (!VD.isActive)
+        if (VD.isActive)
+        {
+            canMove = false;
+        }
+
+        if (canMove)
         {
             Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             moveVelocity = moveInput.normalized * speed;
@@ -35,10 +42,12 @@ public class Movement : MonoBehaviour {
             }
         }
 
-        if((encounterCheck > encounterChanceMin && encounterCheck < encounterChanceMax) && (bufferCount > encounterBuffer))
+        if ((encounterCheck > encounterChanceMin && encounterCheck < encounterChanceMax) && (bufferCount > encounterBuffer))
         {
             bufferCount = 10f;
             Debug.Log("RANDOM ENCOUNTER STARTED");
+            SetMoveVelocity(Vector2.zero);
+            canMove = false;
             //SceneManagers.instance.ToBattle();
             //SceneManagers.instance.MoveToScene(1); //Generic version of the thing above ^
             StartCoroutine(SceneManagers.instance.SceneTransitionToScene("Battle Scene"));
