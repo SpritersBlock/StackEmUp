@@ -1,28 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 3fc45b9b5c26272438470f88bd7a5cc8
-=======
-<<<<<<< HEAD
-guid: 757c1eaad5ee36b4c8bd5ac0f914fa4b
-=======
-guid: be3d55c0bdbf6de4fb7bac9d20ba2668
->>>>>>> master
->>>>>>> master
+guid: 35cafa914bf3cf5469df5bcaf784da1d
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
     mipMapMode: 0
-<<<<<<< HEAD
-    enableMipMap: 1
-=======
-<<<<<<< HEAD
     enableMipMap: 0
-=======
-    enableMipMap: 1
->>>>>>> master
->>>>>>> master
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -50,9 +34,6 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     wrapU: 1
     wrapV: 1
     wrapW: -1
@@ -62,39 +43,15 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.15}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 235, z: 0, w: 2503}
+  spriteBorder: {x: 759, y: 622, z: 1303, w: 1019}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
-=======
->>>>>>> master
-    wrapU: -1
-    wrapV: -1
-    wrapW: -1
-  nPOTScale: 1
-  lightmap: 0
-  compressionQuality: 50
-  spriteMode: 0
-  spriteExtrude: 1
-  spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
-  alphaIsTransparency: 0
-  spriteTessellationDetail: -1
-  textureType: 0
-<<<<<<< HEAD
-=======
->>>>>>> master
->>>>>>> master
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -112,9 +69,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -159,24 +113,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-=======
->>>>>>> master
->>>>>>> master
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< HEAD
-    spriteID: 
-=======
-<<<<<<< HEAD
-    spriteID: 9f72eb88efe33794fba49120409b883e
-=======
-    spriteID: 
->>>>>>> master
->>>>>>> master
+    spriteID: 2ba005c9b33bf894ba73f6d2c79d6c06
     vertices: []
     indices: 
     edges: []
