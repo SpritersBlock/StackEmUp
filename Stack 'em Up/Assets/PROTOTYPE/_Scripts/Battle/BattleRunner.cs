@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 public class BattleRunner : MonoBehaviour {
 
@@ -14,9 +15,13 @@ public class BattleRunner : MonoBehaviour {
     public EnemyAI EnemyMoveHolder;
 
     public GameObject button;
+    public GameObject button2;
 
-    public float PlayerHP;
-    public float EnemyHP;
+    public Animator PlayerStackAnim;
+    public Animator EnemyStackAnim;
+
+    public TMP_Text WinLoss;
+
     public int PlayerCombinedDmg;
     public int EnemyCombinedDmg;
 
@@ -34,20 +39,19 @@ public class BattleRunner : MonoBehaviour {
         }
         MoveHolder = MoveCollector.GetComponent<MoveCollector>();
         EnemyMoveHolder = EnemyAI.GetComponent<EnemyAI>();
+        button.SetActive(true);
+        button2.SetActive(true);
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        PlayerHP = BattleStarter.instance.playerStack[0].health;
-        EnemyHP = BattleStarter.instance.enemyStack[0].health;
-
-        button.SetActive(true);
         if (MoveCollector.GetComponent<MoveCollector>().AllMovesChosen)
         {
             PlayerCombinedDmg = 0;
             EnemyCombinedDmg = 0;
             button.SetActive(false);
+            button2.SetActive(false);
             MoveCollector.GetComponent<MoveCollector>().AllMovesChosen = false;
             EnemyMoveHolder.EnemyMoveChoose();
 
@@ -64,10 +68,7 @@ public class BattleRunner : MonoBehaviour {
                 CheckHP();
             }
 
-            var JoustAttack = MoveHolder.PlayerAttacks.Where(a => a is TowerAttack).Select(a => a as TowerAttack).FirstOrDefault();
-            JoustAttack.Resolve();
-
-            PlayerCombinedDmg = JoustAttack.GetDamage();
+            DoJoust();
 
             BattleStarter.instance.enemyStack[0].health -= PlayerCombinedDmg;
             BattleStarter.instance.playerStack[0].health -= EnemyCombinedDmg;
@@ -82,6 +83,24 @@ public class BattleRunner : MonoBehaviour {
         }
 	}
 
+    private void DoJoust()
+    {
+        PlayerStackAnim.SetTrigger("Joust");
+        EnemyStackAnim.SetTrigger("Joust");
+
+        var JoustAttack = MoveHolder.PlayerAttacks.Where(a => a is TowerAttack).Select(a => a as TowerAttack).FirstOrDefault();
+        JoustAttack.Resolve();
+
+        PlayerCombinedDmg = JoustAttack.GetDamage();
+        Invoke("ButtonsOn", 2f);
+    }
+
+    private void ButtonsOn()
+    {
+        button.SetActive(true);
+        button2.SetActive(true);
+    }
+
     public void CheckHP()
     {
         if(CombatOver == false)
@@ -91,13 +110,19 @@ public class BattleRunner : MonoBehaviour {
                 CombatOver = true;
                 BattleStarter.instance.playerStack[0].health = 0;
                 BattleStarter.instance.enemyStack[0].health = 1;
-                Lose();
+                WinLoss.text = "You Lose";
+                button.SetActive(false);
+                button2.SetActive(false);
+                Invoke("Lose", 2f);
             }
             if (BattleStarter.instance.enemyStack[0].health <= 0)
             {
                 CombatOver = true;
                 BattleStarter.instance.enemyStack[0].health = 0;
-                Win();
+                WinLoss.text = "You Win";
+                button.SetActive(false);
+                button2.SetActive(false);
+                Invoke("Win", 2f);
             }
         }
     }
@@ -105,12 +130,14 @@ public class BattleRunner : MonoBehaviour {
     private void Lose()
     {
         Debug.Log("Lose");
-        SceneManagers.instance.ToOverWorld();
+        //SceneManagers.instance.ToOverWorld();
+        StartCoroutine(SceneManagers.instance.SceneTransitionToScene("Overworld"));
     }
 
     void Win()
     {
         Debug.Log("Win");
-        SceneManagers.instance.ToOverWorld();
+        //SceneManagers.instance.ToOverWorld();
+        StartCoroutine(SceneManagers.instance.SceneTransitionToScene("Overworld"));
     }
 }
