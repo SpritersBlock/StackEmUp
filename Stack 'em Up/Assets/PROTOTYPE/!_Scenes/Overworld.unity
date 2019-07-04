@@ -296,7 +296,7 @@ MonoBehaviour:
   interactionCount: 0
   alias: Old Lady
   overrideStartNode: -1
-  defaultNPCSprite: {fileID: 0}
+  defaultNPCSprite: {fileID: 21300000, guid: 516b653e4edaf7844895c379c612ac79, type: 3}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
   preload: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   interactionCount: 0
   alias: Bobby
   overrideStartNode: -1
-  defaultNPCSprite: {fileID: 0}
+  defaultNPCSprite: {fileID: 21300000, guid: 1343080833a86954abe6a3f847c4237a, type: 3}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
   preload: 0
@@ -1891,7 +1891,7 @@ MonoBehaviour:
   interactionCount: 0
   alias: Bob
   overrideStartNode: -1
-  defaultNPCSprite: {fileID: 0}
+  defaultNPCSprite: {fileID: 21300000, guid: 1343080833a86954abe6a3f847c4237a, type: 3}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
   preload: 0
@@ -2288,7 +2288,7 @@ MonoBehaviour:
   interactionCount: 0
   alias: Bobbest
   overrideStartNode: -1
-  defaultNPCSprite: {fileID: 0}
+  defaultNPCSprite: {fileID: 21300000, guid: 1343080833a86954abe6a3f847c4237a, type: 3}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
   preload: 0
@@ -3028,7 +3028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c2b840810df8e94daee895431c63569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.25
+  speed: 4
   encounterBuffer: 10000000
   bufferCount: 1
   canMove: 1
