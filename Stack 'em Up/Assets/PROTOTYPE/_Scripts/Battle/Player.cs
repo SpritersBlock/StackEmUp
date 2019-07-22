@@ -12,4 +12,12 @@ public class Player : Creature {
         level = Level;
         expRequired = ExpRequired;
     }
+
+    public void CheckEXP()
+    {
+        if (ExpRequired <= 0)
+        {
+            Level++;
+        }
+    }
 }
