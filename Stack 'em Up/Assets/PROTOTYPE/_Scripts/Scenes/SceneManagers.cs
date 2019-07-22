@@ -39,7 +39,7 @@ public class SceneManagers : MonoBehaviour {
     public IEnumerator SceneTransitionToScene(string sceneName)
     {
         sceneTransitionAnimator.SetTrigger("End");
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.25f);
         SceneManager.LoadScene(sceneName);
     }
 }

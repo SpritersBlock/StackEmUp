@@ -37,6 +37,7 @@ public class Overworld_PlayerCharacterAnimator : MonoBehaviour {
     void Start()
     {
         anim = GetComponent<Animator>();
+        playerMovementScript = GetComponent<Movement>();
     }
 
     // Update is called once per frame
@@ -44,22 +45,25 @@ public class Overworld_PlayerCharacterAnimator : MonoBehaviour {
     {
         playerMoving = false;
 
-        if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
+        if (playerMovementScript.canMove)
         {
-            if (!playerMoving)
+            if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
             {
-                playerMoving = true;
+                if (!playerMoving)
+                {
+                    playerMoving = true;
+                }
+                lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
             }
-            lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
-        }
 
-        if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
-        {
-            if (!playerMoving)
+            if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
             {
-                playerMoving = true;
+                if (!playerMoving)
+                {
+                    playerMoving = true;
+                }
+                lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
             }
-            lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
         }
 
         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));

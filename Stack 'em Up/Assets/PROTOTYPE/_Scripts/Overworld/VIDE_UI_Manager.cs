@@ -102,7 +102,7 @@ public class VIDE_UI_Manager : MonoBehaviour
         VD.BeginDialogue(dialogue); //Begins dialogue, will call the first OnNodeChange
 
         dialogueContainer.SetActive(true); //Let's make our dialogue container visible
-        AudioManager.instance.Play("Textbox Open");
+        //AudioManager.instance.Play("Textbox Open");
     }
 
     //Calls next node in the dialogue
@@ -283,7 +283,7 @@ public class VIDE_UI_Manager : MonoBehaviour
         VD.OnEnd -= EndDialogue;
         dialogueContainer.SetActive(false);
         VD.EndDialogue();
-        AudioManager.instance.Play("Textbox Close");
+        //AudioManager.instance.Play("Textbox Close");
 
         //VD.SaveState("VIDEDEMOScene1", true); //Saves VIDE stuff related to EVs and override start nodes
         //QuestChartDemo.SaveProgress(); //saves OUR custom game data

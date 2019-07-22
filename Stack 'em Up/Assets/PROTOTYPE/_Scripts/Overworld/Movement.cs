@@ -15,6 +15,9 @@ public class Movement : MonoBehaviour {
     private int encounterCheck;
 
     public bool canMove = true;
+
+    public Encounter encounterScript;
+    
     //private Animator anim;
 
     private void Start()
@@ -28,6 +31,9 @@ public class Movement : MonoBehaviour {
         if (VD.isActive)
         {
             canMove = false;
+        } else
+        {
+            canMove = true;
         }
 
         if (canMove)
@@ -50,7 +56,8 @@ public class Movement : MonoBehaviour {
             canMove = false;
             //SceneManagers.instance.ToBattle();
             //SceneManagers.instance.MoveToScene(1); //Generic version of the thing above ^
-            StartCoroutine(SceneManagers.instance.SceneTransitionToScene("Battle Scene"));
+            //StartCoroutine(SceneManagers.instance.SceneTransitionToScene("Battle Scene"));
+            encounterScript.InitiateEncounter();
         }
 	}
 

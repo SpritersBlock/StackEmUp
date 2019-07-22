@@ -14,4 +14,9 @@ public class Encounter : MonoBehaviour {
 
         }
     }
+
+    public void InitiateEncounter()
+    {
+        StartCoroutine(SceneManagers.instance.SceneTransitionToScene("Battle Scene"));
+    }
 }
